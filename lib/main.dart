@@ -16,6 +16,21 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
+  Future getData() async {
+    var url = Uri.parse('https://jsonplaceholder.typicode.com/todos/1');
+     var response = await http.get(url);
+   print(response.statusCode);
+  }
+
+
+
+  @override
+  void initState() {
+    super.initState();
+    getData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
