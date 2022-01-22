@@ -18,11 +18,14 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
 
   Future getData() async {
-    var url = Uri.parse('https://jsonplaceholder.typicode.com/todos/1');
+    var url = Uri.https('samples.openweathermap.org', '/data/2.5/weather', {
+      'lat': '35',
+      'lon': '-6',
+      'appid': '91b54cb3ec1afcb7a8fd49835a557d32'
+    });
      var response = await http.get(url);
    print(response.statusCode);
   }
-
 
 
   @override
